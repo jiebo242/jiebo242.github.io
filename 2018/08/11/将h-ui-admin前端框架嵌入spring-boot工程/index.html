@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="spring-boot,前端框架,H-ui," />
 
 
 
@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="Hello,This is my first blog, i will insist on record.">
+<meta name="description" content="最近让编写一个后台管理系统，想着自己搭建比较费劲，就在网上找了一个比较好用简单的后台管理系统框架，引入后，咱们就只需要编写具体模块页面就行了，节省开发量，页面也比较漂亮。">
+<meta name="keywords" content="spring-boot,前端框架,H-ui">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My First Blog">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/My-First-Blog/index.html">
+<meta property="og:title" content="将h-ui-admin前端框架嵌入spring-boot工程">
+<meta property="og:url" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/index.html">
 <meta property="og:site_name" content="潇洒哥jiebo">
-<meta property="og:description" content="Hello,This is my first blog, i will insist on record.">
+<meta property="og:description" content="最近让编写一个后台管理系统，想着自己搭建比较费劲，就在网上找了一个比较好用简单的后台管理系统框架，引入后，咱们就只需要编写具体模块页面就行了，节省开发量，页面也比较漂亮。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-23T04:00:00.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/IDEA快速创建spring-boot工程.gif">
+<meta property="og:image" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/spring-boot工程结构.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/h-ui-admin目录结构.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/spring-boot目录结构.png">
+<meta property="og:updated_time" content="2018-08-11T04:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My First Blog">
-<meta name="twitter:description" content="Hello,This is my first blog, i will insist on record.">
+<meta name="twitter:title" content="将h-ui-admin前端框架嵌入spring-boot工程">
+<meta name="twitter:description" content="最近让编写一个后台管理系统，想着自己搭建比较费劲，就在网上找了一个比较好用简单的后台管理系统框架，引入后，咱们就只需要编写具体模块页面就行了，节省开发量，页面也比较漂亮。">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/IDEA快速创建spring-boot工程.gif">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/21/My-First-Blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/"/>
 
 
 
 
 
-  <title>My First Blog | 潇洒哥jiebo</title>
+  <title>将h-ui-admin前端框架嵌入spring-boot工程 | 潇洒哥jiebo</title>
   
 
 
@@ -252,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/My-First-Blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="潇洒哥">
@@ -269,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My First Blog</h1>
+          <h1 class="post-title" itemprop="name headline">将h-ui-admin前端框架嵌入spring-boot工程</h1>
         
 
         <div class="post-meta">
@@ -281,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-21T13:54:34+08:00">
-                2018-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T11:54:34+08:00">
+                2018-08-11
               </time>
             
 
@@ -297,13 +303,35 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-23T12:00:00+08:00">
-                2018-07-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-11T12:00:00+08:00">
+                2018-08-11
               </time>
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-boot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -311,7 +339,7 @@
 
           
           
-             <span id="/2018/07/21/My-First-Blog/" class="leancloud_visitors" data-flag-title="My First Blog">
+             <span id="/2018/08/11/将h-ui-admin前端框架嵌入spring-boot工程/" class="leancloud_visitors" data-flag-title="将h-ui-admin前端框架嵌入spring-boot工程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,7 +370,78 @@
       
 
       
-        <p>Hello,This is my first blog, i will insist on record.</p>
+        <p>最近让编写一个后台管理系统，想着自己搭建比较费劲，就在网上找了一个比较好用简单的后台管理系统框架，引入后，咱们就只需要编写具体模块页面就行了，节省开发量，页面也比较漂亮。<br><a id="more"></a></p>
+<h1 id="创建spring-boot工程"><a href="#创建spring-boot工程" class="headerlink" title="创建spring-boot工程"></a>创建spring-boot工程</h1><p>此处我们使用IEDA来进行spring-boot的快速创建：<br><img src="IDEA快速创建spring-boot工程.gif" alt="IDEA快速创建spring-boot工程" title="IDEA快速创建spring-boot工程"><br>创建完成后的工程结构：<br><img src="spring-boot工程结构.png" alt="spring-boot工程结构" title="spring-boot工程结构">  </p>
+<pre><code>pom.xml：Maven构建说明文件  
+DemoApplication.java：一个带有main()方法的类，用于启动应用程序（关键）  
+ServletInitializer.java作用是spring-boot项目直接打war，放在tomcat下启动会报错，因为缺少web.xml，添加此类后就ok了  
+DemoApplicationTests.java：一个空的Junit测试类，它加载了一个使用Spring Boot字典配置功能的Spring应用程序上下文  
+application.properties：一个空的properties文件，你可以根据需要添加配置属性  
+static：是放静态资源的默认路径，支持修改  
+templates：是放置页面的默认路径，默认后缀为html，也支持修改  
+</code></pre><h1 id="移入h-ui-admin的静态资源和页面"><a href="#移入h-ui-admin的静态资源和页面" class="headerlink" title="移入h-ui-admin的静态资源和页面"></a>移入h-ui-admin的静态资源和页面</h1><p><a href="http://www.h-ui.net/H-ui.admin.shtml" target="_blank" rel="noopener">h-ui-admin</a>主要包含2部分：静态css+js，html，将这2部分分别复制到static和templates里面即可，对应如下：<br><img src="h-ui-admin目录结构.png" alt="h-ui-admin目录结构" title="h-ui-admin目录结构"><br><img src="spring-boot目录结构.png" alt="spring-boot目录结构" title="spring-boot目录结构">  </p>
+<h1 id="添加controller及配置文件"><a href="#添加controller及配置文件" class="headerlink" title="添加controller及配置文件"></a>添加controller及配置文件</h1><pre><code class="java"><span class="meta">@Controller</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> </span>{
+
+    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> <span class="string">"index"</span>;
+    }
+    <span class="meta">@RequestMapping</span>(<span class="string">"/welcome"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">welcome</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> <span class="string">"welcome"</span>;
+    }
+    <span class="meta">@RequestMapping</span>(<span class="string">"/article-list"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">articleList</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> <span class="string">"article-list"</span>;
+    }
+}
+</code></pre>
+<p>application.properties添加配置文件：  </p>
+<pre><code class="properties">server.port=9999
+server.context-path=/
+</code></pre>
+<h1 id="启动工程"><a href="#启动工程" class="headerlink" title="启动工程"></a>启动工程</h1><p>通过DemoApplication-main()启动工程，访问路径<a href="http://localhost:9999/即可打开页面。" target="_blank" rel="noopener">http://localhost:9999/即可打开页面。</a>  </p>
+<hr>
+<h1 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h1><h2 id="icon显示问题"><a href="#icon显示问题" class="headerlink" title="icon显示问题"></a>icon显示问题</h2><p>在替换h-ui默认的icon时，发现如果将icon放在static目录下，不会生效，后来尝试放在static/icon文件夹下面才能生效。</p>
+<h2 id="静态资源加载配置"><a href="#静态资源加载配置" class="headerlink" title="静态资源加载配置"></a>静态资源加载配置</h2><p>把静态资源放在默认的static下面，就相当于设置了如下静态资源的访问路径，所以如果你不使用static路径时，就需要手动添加以下设置来指定静态资源的路径:  </p>
+<pre><code class="java"><span class="meta">@Configuration</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>{
+    <span class="comment">/**</span>
+<span class="comment">     * 静态访问路径</span>
+<span class="comment">     *</span>
+<span class="comment">     * <span class="doctag">@param</span> registry</span>
+<span class="comment">     */</span>
+    <span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>{
+        registry.addResourceHandler(<span class="string">"/**"</span>).addResourceLocations(<span class="string">"classpath:/static/"</span>);
+        <span class="keyword">super</span>.addResourceHandlers(registry);
+    }
+}
+</code></pre>
+<h2 id="html校验"><a href="#html校验" class="headerlink" title="html校验"></a>html校验</h2><p>首次启动访问页面时，报错：  </p>
+<pre><code>org.xml.sax.SAXParseException: 元素类型 &quot;link&quot; 必须由匹配的结束标记 &quot;&lt;/link&gt;&quot; 终止。
+org.xml.sax.SAXParseException: 元素类型 &quot;meta&quot; 必须由匹配的结束标记 &quot;&lt;/meta&gt;&quot; 终止。
+</code></pre><p>说明html有些结束标记不完整，此时我选择的方法是：去掉严格的html格式校验:<br>1.pom引入jar：  </p>
+<pre><code class="xml"><span class="comment">&lt;!-- 防止thymeleaf对html严格校验 --&gt;</span>
+<span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sourceforge.nekohtml<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>nekohtml<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
+</code></pre>
+<p>2.application.properties添加配置文件：  </p>
+<pre><code class="properties">spring.thymeleaf.mode=LEGACYHTML5
+</code></pre>
+<h2 id="iframe嵌套页面设置"><a href="#iframe嵌套页面设置" class="headerlink" title="iframe嵌套页面设置"></a>iframe嵌套页面设置</h2><p>h-ui-admin子页面的嵌套使用的是iframe：  </p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">scrolling</span>=<span class="string">"yes"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span> <span class="attr">src</span>=<span class="string">"welcome"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span>
+</code></pre>
+<p>Src会请求后台，不能直接引入静态页，如果src=”welcome.html”是会报404的，所以得添加对应controller</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a href="http://www.h-ui.net/index.shtml" target="_blank" rel="noopener">H-ui前端框架官网</a>  </li>
+<li><a href="https://www.cnblogs.com/smallfa/p/5784251.html" target="_blank" rel="noopener">后台管理UI的选择</a>  </li>
+<li><a href="https://blog.csdn.net/m0_37499059/article/details/80519211" target="_blank" rel="noopener">后台ui大全</a>  </li>
+</ul>
 
       
     </div>
@@ -358,6 +457,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+          
+            <a href="/tags/前端框架/" rel="tag"># 前端框架</a>
+          
+            <a href="/tags/H-ui/" rel="tag"># H-ui</a>
+          
+        </div>
+      
 
       
       
@@ -367,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/07/24/Markdown基本使用/" rel="next" title="Markdown基本使用">
+                <i class="fa fa-chevron-left"></i> Markdown基本使用
               </a>
             
           </div>
@@ -376,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/24/使用Github-Pages-hexo搭建博客/" rel="prev" title="使用Github Pages+hexo搭建博客">
-                使用Github Pages+hexo搭建博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -501,6 +615,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建spring-boot工程"><span class="nav-number">1.</span> <span class="nav-text">创建spring-boot工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移入h-ui-admin的静态资源和页面"><span class="nav-number">2.</span> <span class="nav-text">移入h-ui-admin的静态资源和页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加controller及配置文件"><span class="nav-number">3.</span> <span class="nav-text">添加controller及配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动工程"><span class="nav-number">4.</span> <span class="nav-text">启动工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关问题"><span class="nav-number">5.</span> <span class="nav-text">相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#icon显示问题"><span class="nav-number">5.1.</span> <span class="nav-text">icon显示问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态资源加载配置"><span class="nav-number">5.2.</span> <span class="nav-text">静态资源加载配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html校验"><span class="nav-number">5.3.</span> <span class="nav-text">html校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iframe嵌套页面设置"><span class="nav-number">5.4.</span> <span class="nav-text">iframe嵌套页面设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">6.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
