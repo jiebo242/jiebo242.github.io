@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java编程,java基础," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="花了近半年的时间，才把《effective-java[第三版]》基本阅读完，由于自己JAVA基础差，很多地方不理解，暂时把阅读中的理解做个记录，后续再完善。">
+<meta name="keywords" content="java编程,java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="effective-java[第三版]">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/effective-java-第三版/index.html">
+<meta property="og:site_name" content="潇洒哥jiebo">
+<meta property="og:description" content="花了近半年的时间，才把《effective-java[第三版]》基本阅读完，由于自己JAVA基础差，很多地方不理解，暂时把阅读中的理解做个记录，后续再完善。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-26T12:40:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="effective-java[第三版]">
+<meta name="twitter:description" content="花了近半年的时间，才把《effective-java[第三版]》基本阅读完，由于自己JAVA基础差，很多地方不理解，暂时把阅读中的理解做个记录，后续再完善。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/effective-java-第三版/"/>
+
+
+
+
+
+  <title>effective-java[第三版] | 潇洒哥jiebo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">潇洒哥jiebo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/effective-java-第三版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="潇洒哥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="潇洒哥jiebo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">effective-java[第三版]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-26T20:40:34+08:00">
+                2019-08-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-26T20:40:34+08:00">
+                2019-08-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/26/effective-java-第三版/" class="leancloud_visitors" data-flag-title="effective-java[第三版]">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>花了近半年的时间，才把《effective-java[第三版]》基本阅读完，由于自己JAVA基础差，很多地方不理解，暂时把阅读中的理解做个记录，后续再完善。<br><a id="more"></a></p>
+<h1 id="effective-java"><a href="#effective-java" class="headerlink" title="effective-java"></a>effective-java</h1><p>effective-java[第三版]书中的代码示例,JDK版本为1.8.0_181</p>
+<h1 id="作者提供的本书代码示例"><a href="#作者提供的本书代码示例" class="headerlink" title="作者提供的本书代码示例"></a>作者提供的本书代码示例</h1><p><a href="https://github.com/jbloch/effective-java-3e-source-code.git" target="_blank" rel="noopener">https://github.com/jbloch/effective-java-3e-source-code.git</a></p>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">chapter</th>
+<th style="text-align:center">item</th>
+<th style="text-align:center">explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">02</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">创建和销毁对象</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">02</td>
+<td style="text-align:center">实体类多个参数的情况下，推荐使用构建器Build</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">03</td>
+<td style="text-align:center">Singleton单例的多种实现方式：饥饿方式、懒加载方式、枚举方式、静态内部类方式(饥饿+懒加载的融合)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">05</td>
+<td style="text-align:center">推荐依赖注入的方式来引入资源，有诸多好处</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">06</td>
+<td style="text-align:center">避免创建不必要的对象，但是要看是什么类型的对象，创建新的还是复用已有的是要比较各方面代价后的一个结果</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">07</td>
+<td style="text-align:center">及时将过期的引用置为null，但并不是每个对象都要手动清除引用，大部分还是交给GC来做，文中主要说明了内存泄漏的3个主要来源</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">09</td>
+<td style="text-align:center">针对需手工关闭的资源，JDK1.7之后有了一种新的写法，不用再手动close资源了</td>
+</tr>
+<tr>
+<td style="text-align:center">03</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">所有对象都通用的方法</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">equals方法的原则和写法，推荐使用lombok或者AutoValue来自动生成</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">hashCode方法的重写应该是和equals方法一起的，推荐使用lombok或者AutoValue来自动生成</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">clone方法尽量不要重写，建议使用拷贝构造器或拷贝工厂方法来替代，写clone方法时务必注意引用类型域的层级clone</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">如果类的对象要是有序的，提供3种方式来实现排序逻辑</td>
+</tr>
+<tr>
+<td style="text-align:center">04</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">类和接口编写时的注意事项</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">使类和成员的可访问性最小化：private-default-protected-public</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">公有类的域不应该直接暴露数据域的访问，而是应该提高相应域的操作方法，比如：域设置为private，然后提供get/set方法</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">使类和成员的可变性最小化：final修饰</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">复合优先于继承，因为继承是打破了封装性的，让程序变的脆弱</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">必要时如何编写可继承类：①专门为了继承而设计的②提供很好的说明文档(相当于永久承诺)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">接口优于抽象类：①接口有多种好处②对接口提供一个抽象的骨架实现类，可以结合接口和抽象类的优点</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">21</td>
+<td style="text-align:center">为后代设计接口时，需要考虑的地方</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">接口只用于定义类型，不应该用于定义和导出常量，同时提供了几种定义常量的方案</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">标签类很少适用，尽量拆分成类层次的方式</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">4种嵌套类的声明方式及常见的适用场景</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">一个java文件不要定义多个顶级类，这个在IDEA下不存在，会校验出来的</td>
+</tr>
+<tr>
+<td style="text-align:center">05</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">泛型的使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">避免使用原生态类型，因为它不是类型安全的，运行时会有异常</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">通过注解@SuppressWarnings(“unchecked”)消除非受检的警告，前提是你确保它是类型安全的</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">泛型数组在使用时如果出现编译错误或警告，优先考虑用泛型列表替换数组</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">泛型类的编写及注意规范</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">泛型方法的编写及注意规范</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">31</td>
+<td style="text-align:center">API定义时，考虑使用通配符来提高灵活性，并明白什么场景下使用通配符及如何使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">泛型和可变参数是不合的，并用泛型和可变参数的注意事项以及替代方案</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">如何编写类型安全的异构容器，主要是通过类型令牌</td>
+</tr>
+<tr>
+<td style="text-align:center">06</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">枚举和注解的使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">34</td>
+<td style="text-align:center">当需要定义一组固定常量时，enum比int常量有更多的好处：可读性、安全性等</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">尽量不使用enum自带的序数值ordinal，而是给枚举添加一个域来记录</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">用EnumSet代替位域，但是平常也没啥场景要使用位域</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">37</td>
+<td style="text-align:center">当根据Enum来进行分类的时候，不要使用enum[]或list<enum>并且用enum的序数ordinal来作为索引，而是应该使用EnumMap</enum></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">因为枚举无法继承扩展，所以这里作者建议同一类的enum都implement同一个接口来模拟枚举的扩展</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">39</td>
+<td style="text-align:center">通过编写一个@Test注解，来说明注解的写法和用法</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">覆盖方法记得使用@Override注解</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">41</td>
+<td style="text-align:center">论述标记接口和标记注解的优缺点，及使用的场景</td>
+</tr>
+<tr>
+<td style="text-align:center">07</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Lambda和Stream的使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">42</td>
+<td style="text-align:center">Lambda、方法引用都是匿名类的一个升级方案，都是为了提供函数对象的，最终的目的是函数编程</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">43</td>
+<td style="text-align:center">提供函数对象：方法引用&gt;Lambda&gt;匿名类</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">使用函数接口时，优先使用java.util.function下预定义的，本章对下面的接口做了一个分类说明，方便记忆</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">Stream的写法，以及和迭代写法的对比和选用场景</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">实在看不懂，后续专题研究</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">实在看不懂，后续专题研究</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">48</td>
+<td style="text-align:center">实在看不懂，后续专题研究</td>
+</tr>
+<tr>
+<td style="text-align:center">08</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">方法-编写方法时的注意事项和技巧</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">方法参数的有效性检查(何时需要检查?如何检查?检查出不合法参数如何处理?)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">参数的保护性拷贝(为何：防止客户端参数搞破坏?如何拷贝?拷贝是有成本的，所以对于受信任的客户端不用保护性拷贝)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">51</td>
+<td style="text-align:center">设计方法的签名的注意事项：方法名+参数列表</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">52</td>
+<td style="text-align:center">不建议使用重载,因为有容易混淆等问题,最好使用更加形象而不同的方法名来进行区分</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">53</td>
+<td style="text-align:center">可变参数实际上是一个数组,存在一些问题(运行时而不是编译时发生失败,存在数组的分配和初始化影响性能),需谨慎使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">54</td>
+<td style="text-align:center">当方法返回值是数组或集合时,不要返回null,而是返回空集合或数组</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">使用optional作为返回值,optional理解就是一种特殊集合,将真正的回参放入其中,显性的要求方法调用方进行回参的校验,不过用的时候需要做好评估,毕竟是又包装了一层,存在性能影响</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">56</td>
+<td style="text-align:center">给接口、类、方法、字段添加规范的注释，通过javadoc生成API文档</td>
+</tr>
+<tr>
+<td style="text-align:center">09</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">日常编码时的注意事项</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">57</td>
+<td style="text-align:center">局部变量的作用域最小化，在用的时候再进行声明，而不是像C语言一样声明一大堆</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">58</td>
+<td style="text-align:center">for-each&gt;传统for循环&gt;while循环，主要是从简介性、灵活性、出错预防方面来考虑</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">59</td>
+<td style="text-align:center">使用现成的JAVA类库或第三方类库，避免重复造轮子</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">精确的金额计算，避免使用float或double，而是BigDecimal或int或long</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">61</td>
+<td style="text-align:center">能使用基本类型的时候就不要使用装箱基本类型，避免不必要的装箱-拆箱</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">62</td>
+<td style="text-align:center">应该用基本类型或者枚举类型的时候，避免使用字符串</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">63</td>
+<td style="text-align:center">字符串连接时，使用StringBuilder而不是String</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">通过接口或者最小的具体类来引用对象，算是多态的一种具体使用</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">65</td>
+<td style="text-align:center">反射一般多用于Spring、Mybatis等框架中，日常代码中使用，应该仅仅使用反射来实例化对象，而对象的引用则使用接口或者超类</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">66</td>
+<td style="text-align:center">使用本地方法前三思，因为常用的native方法，JAVA API基本上都进行了封装</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">67</td>
+<td style="text-align:center">进行优化前，一定要有详细的优化方案和评估</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">养成良好的命名规范</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">异常的编码规范</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">69</td>
+<td style="text-align:center">尽量是在方法不正常的时候再使用异常，而不是把异常当成一种控制流使用，一般情况下，咱们编码不存在这样的问题</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">70</td>
+<td style="text-align:center">两种异常的使用场景：受检异常(方法声明时就抛出的异常，这种是期望调用方能够适当的恢复时采用这种异常，比如流关闭异常)、运行时异常(方法不明确声明，用来表明时调用方编程错误，才导致的异常，比如传入的参数不符合约定)</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">71</td>
+<td style="text-align:center">受检异常虽然可以强迫调用方处理异常，提高代码可靠，但是也导致API使用不变代码冗余等问题，符合一下2个条件可考虑使用受检异常：1.正确使用API并不能阻止异常的发生2.发生异常时API调用方可以立即采取有用的动作处理</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">72</td>
+<td style="text-align:center">如果没有正当的理由，不要自己编写异常类，JAVA定义的常用标准异常足够用了</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">73</td>
+<td style="text-align:center">当低层异常对于高层有用时，再使用异常转译向上抛出，不然最好就在低层进行异常处理就行了</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">74</td>
+<td style="text-align:center">通过@throws标签为异常建立文档，说明什么情况下会抛出什么样的异常</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">75</td>
+<td style="text-align:center">编写异常类时，为了记录和排查，一定要将异常的细节信息包含在异常类中</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">76</td>
+<td style="text-align:center">让一个方法保持异常失败原子性(异常发生后不影响对象的可用状态)的几种方法处理方式</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">78</td>
+<td style="text-align:center">不要忽略异常,如果你catch住的异常无需处理，起码也在catch代码块里进行注释说明或者LOG记录</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java编程/" rel="tag"># java编程</a>
+          
+            <a href="/tags/java基础/" rel="tag"># java基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/03/头脑风暴-六顶思考帽/" rel="next" title="头脑风暴-六顶思考帽">
+                <i class="fa fa-chevron-left"></i> 头脑风暴-六顶思考帽
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODI3NS8xNDgwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="潇洒哥" />
+            
+              <p class="site-author-name" itemprop="name">潇洒哥</p>
+              <p class="site-description motion-element" itemprop="description">生无所息.日有所进.厚德载物.自强不息</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#effective-java"><span class="nav-number">1.</span> <span class="nav-text">effective-java</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作者提供的本书代码示例"><span class="nav-number">2.</span> <span class="nav-text">作者提供的本书代码示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-number">3.</span> <span class="nav-text">目录结构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潇洒哥</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("k5SuvBrcKF1BlFVa4fS8AvXz-gzGzoHsz", "ns88gWSAA3B3u41bRFeXekRi");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
